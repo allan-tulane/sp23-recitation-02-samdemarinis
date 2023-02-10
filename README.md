@@ -1,7 +1,7 @@
 # CMPS 2200  Recitation 02
 
-**Name (Team Member 1):**_________________________  
-**Name (Team Member 2):**_________________________
+**Name (Team Member 1):**___Sam DeMarinis________  
+**Name (Team Member 2):**___Zoe Oboler___________
 
 In this recitation, we will investigate recurrences. 
 To complete this recitation, follow the instructions in this document. Some of your answers will go in this file, and others will require you to edit `main.py`.
@@ -48,12 +48,20 @@ where $W(1) = 1$.
 
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
-**TODO: your answer goes here**
+The asymptotic behavior of W(n) for f(n) = 1 is O(n).
+The asymptotic behavior of W(n) for f(n) = n is O(n*log(n)).
+The asymptotic behavior of W(n) for f(n) = log(n) is O((log(n))^2).
 
-- [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
+When n = 1000000, a =2, and b = 2 the values of W(n) are:
+For f(n) = 1: 2097151
+For f(n) = n: 21048576.0
+For f(n) = log(n): 2452458.6329721743
 
-**TODO: your answer goes here**
+- [ ] 5. (4 points) Now that you have a nice way to empirically generate values of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
+
+Regardless of the size of n, there will be less work when c < log_b a. We tested this with constant a and b values but varied the value of c. log_b a was equal to 6, and we tested with c values of both 2 and 10. In all cases, regardless of the n value, when c = 2 the work was signifigantly smaller than when c = 10. This difference increased as the value of n increased but was always present. In addition to this we tested with c = 6 to see the behavior when c = log_b a. We found that these values were between the results for c < log_b a and c > log_b a for all n.
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here**
+The span functions continued to exhibit the same behavior as the compare work functions. When c < log_b a the span values were smaller than when c > log_b a for all n.
